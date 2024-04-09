@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
@@ -149,14 +150,90 @@ fun APPUI(innerPadding: PaddingValues) {
             }
         }
         item {
-            InfoCard(text =" Media Info")
+            InfoCard(text = " Media Info")
+        }
+        item {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Card(
+                    onClick = { },
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth(1f)
+                        .graphicsLayer {
+                            alpha = 0.8f
+                            clip = true
+                            scaleX = 0.8f
+                            scaleY = 0.9f
+                        },
+                    colors = CardDefaults.cardColors(Color(0xFFFFFFFF)),
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .fillMaxWidth(0.6f),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally,
+
+                        ) {
+                        InfoText("supported Encoder:")
+                        InfoText("supported Decoder:")
+                        InfoText("HDR 10:")
+                        InfoText("HDR 10+:")
+                        InfoText("HLG:")
+                        InfoText("DOLBY VISION:")
+                        InfoText("Screen refresh rate:")
+                    }
+                }
+            }
+        }
+        item{
+            InfoCard(text = "Widevine Info")
+        }
+        item {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Card(
+                    onClick = { },
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth(1f)
+                        .graphicsLayer {
+                            alpha = 0.8f
+                            clip = true
+                            scaleX = 0.8f
+                            scaleY = 0.9f
+                        },
+                    colors = CardDefaults.cardColors(Color(0xFFFFFFFF)),
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .fillMaxWidth(0.6f),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally,
+
+                        ) {
+                        InfoText("Vendor:")
+                        InfoText("Version:")
+                        InfoText("DRM Level:")
+                    }
+                }
+            }
         }
     }
 }
 
 @Composable
-fun InfoText(text:String){
-    Text(text = text,
+fun InfoText(text: String) {
+    Text(
+        text = text,
         style = TextStyle(
             fontFamily = FontFamily.Default,
             fontWeight = FontWeight.Bold,
@@ -164,12 +241,13 @@ fun InfoText(text:String){
         ),
         color = Color(0xFFFF4466),
         modifier = Modifier.fillMaxWidth()
-        )
+    )
+    Spacer(modifier =Modifier.height(8.dp))
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InfoCard(text: String){
+fun InfoCard(text: String) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -211,7 +289,7 @@ fun InfoCard(text: String){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTopAppBar(text: String){
+fun MyTopAppBar(text: String) {
     TopAppBar(
         title = {
             Text(
