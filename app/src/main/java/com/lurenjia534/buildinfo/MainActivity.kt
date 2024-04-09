@@ -70,35 +70,7 @@ fun APP() {
                 containerColor = Color(0xFFFFF6F6),
                 modifier = Modifier.fillMaxSize(),
                 topBar = {
-                    TopAppBar(
-                        title = {
-                            Text(
-                                text = "Build Info", style = TextStyle(
-                                    fontFamily = FontFamily.Default,
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 20.sp,
-                                ),
-                                color = Color(0xFFFF8FA3)
-                            )
-                        },
-                        colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = Color(0xFFFFF1F4),
-                        ),
-                        navigationIcon = {
-                            IconButton(
-                                onClick = { /*TODO*/ },
-                                modifier = Modifier.padding(0.dp),
-                                colors = IconButtonDefaults.iconButtonColors(
-                                )
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Filled.Info,
-                                    contentDescription = "Info",
-                                    tint = Color(0xFFFF496A)
-                                )
-                            }
-                        },
-                    )
+                    MyTopAppBar("Build Info")
                 },
                 floatingActionButton = {
                     FloatingActionButton(
@@ -131,7 +103,7 @@ fun APPUI(innerPadding: PaddingValues) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                InfoCard(text = "Build Info")
+                InfoCard(text = "System Info")
             }
         }
         items(1) {
@@ -235,4 +207,38 @@ fun InfoCard(text: String){
             }
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MyTopAppBar(text: String){
+    TopAppBar(
+        title = {
+            Text(
+                text = text, style = TextStyle(
+                    fontFamily = FontFamily.Default,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                ),
+                color = Color(0xFFFF8FA3)
+            )
+        },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = Color(0xFFFFF1F4),
+        ),
+        navigationIcon = {
+            IconButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.padding(0.dp),
+                colors = IconButtonDefaults.iconButtonColors(
+                )
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Info,
+                    contentDescription = "Info",
+                    tint = Color(0xFFFF496A)
+                )
+            }
+        },
+    )
 }
