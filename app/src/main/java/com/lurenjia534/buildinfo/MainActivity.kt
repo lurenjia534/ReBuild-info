@@ -1,5 +1,6 @@
 package com.lurenjia534.buildinfo
 
+import android.icu.text.IDNA.Info
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -130,37 +131,7 @@ fun APPUI(innerPadding: PaddingValues) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Card(
-                    onClick = {},
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxWidth(1f)
-                        .graphicsLayer {
-                            alpha = 0.8f
-                            clip = true
-                            scaleX = 0.8f
-                            scaleY = 0.9f
-                        },
-                    colors = CardDefaults.cardColors(Color(0xFFFFFFFF)),
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = "Build Info",
-                            style = TextStyle(
-                                fontFamily = FontFamily.Default,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 25.sp,
-                                textAlign = TextAlign.Center
-                            ),
-                            color = Color(0xFFFF2D53),
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                    }
-                }
+                InfoCard(text = "Build Info")
             }
         }
         items(1) {
@@ -177,8 +148,6 @@ fun APPUI(innerPadding: PaddingValues) {
                         .graphicsLayer {
                             alpha = 0.8f // Adjust the transparency if needed
                             clip = true
-                            // Set the blur amount (the higher the value, the more blur effect)
-                            // Note: This will blur the entire card, not just the edges
                             scaleX = 0.8f
                             scaleY = 0.9f
                         },
@@ -207,6 +176,9 @@ fun APPUI(innerPadding: PaddingValues) {
                 }
             }
         }
+        item {
+            InfoCard(text =" Media Info")
+        }
     }
 }
 
@@ -221,5 +193,46 @@ fun InfoText(text:String){
         color = Color(0xFFFF4466),
         modifier = Modifier.fillMaxWidth()
         )
+}
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun InfoCard(text: String){
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Card(
+            onClick = {},
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(1f)
+                .graphicsLayer {
+                    alpha = 0.8f
+                    clip = true
+                    scaleX = 0.8f
+                    scaleY = 0.9f
+                },
+            colors = CardDefaults.cardColors(Color(0xFFFFFFFF)),
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = text,
+                    style = TextStyle(
+                        fontFamily = FontFamily.Default,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 25.sp,
+                        textAlign = TextAlign.Center
+                    ),
+                    color = Color(0xFFFF2D53),
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        }
+    }
 }
