@@ -151,7 +151,7 @@ fun APPUI(innerPadding: PaddingValues) {
                         Text(
                             text = "Build Info",
                             style = TextStyle(
-                                fontFamily = FontFamily.Cursive,
+                                fontFamily = FontFamily.Default,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 25.sp,
                                 textAlign = TextAlign.Center
@@ -192,64 +192,34 @@ fun APPUI(innerPadding: PaddingValues) {
                         horizontalAlignment = Alignment.CenterHorizontally,
 
                         ) {
-                        Text(
-                            text = "Android Version:",
-                            style = TextStyle(
-                                fontFamily = FontFamily.Default,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp,
-                            ),
-                            color = Color(0xFFFF4466),
-
-                            )
-                        Text(
-                            text = "Android Level:",
-                            style = TextStyle(
-                                fontFamily = FontFamily.Default,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp,
-                            ),
-                            color = Color(0xFFFF4466)
-                        )
-                        Text(
-                            text = "Android Build ID:",
-                            style = TextStyle(
-                                fontFamily = FontFamily.Default,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp,
-                            ),
-                            color = Color(0xFFFF4466)
-                        )
-                        Text(
-                            text = "Brand:",
-                            style = TextStyle(
-                                fontFamily = FontFamily.Default,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp,
-                            ),
-                            color = Color(0xFFFF4466)
-                        )
-                        Text(
-                            text = "Manufacturer:",
-                            style = TextStyle(
-                                fontFamily = FontFamily.Default,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp,
-                            ),
-                            color = Color(0xFFFF4466)
-                        )
-                        Text(
-                            text = "Model:",
-                            style = TextStyle(
-                                fontFamily = FontFamily.Default,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp,
-                            ),
-                            color = Color(0xFFFF4466)
-                        )
+                        InfoText("Android Version:")
+                        InfoText("Android Level:")
+                        InfoText("Android Build ID:")
+                        InfoText("Brand:")
+                        InfoText("Manufacturer:")
+                        InfoText("Model:")
+                        InfoText("Board:")
+                        InfoText("Build fingerprint:")
+                        InfoText("Product:")
+                        InfoText("SKU:")
+                        InfoText("Build Type:")
                     }
                 }
             }
         }
     }
+}
+
+@Composable
+fun InfoText(text:String){
+    Text(text = text,
+        style = TextStyle(
+            fontFamily = FontFamily.Default,
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp,
+        ),
+        color = Color(0xFFFF4466),
+        modifier = Modifier.fillMaxWidth()
+        )
+
 }
