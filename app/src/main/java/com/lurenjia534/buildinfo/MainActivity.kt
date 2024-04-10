@@ -116,7 +116,7 @@ fun APPUI(innerPadding: PaddingValues) {
                             scaleX = 0.8f
                             scaleY = 0.9f
                         },
-                    colors = CardDefaults.cardColors(Color(0xFFFFFFFF)),
+                    colors = CardDefaults.cardColors(MaterialTheme.colorScheme.surfaceContainer),
                 ) {
                     Column(
                         modifier = Modifier
@@ -162,7 +162,7 @@ fun APPUI(innerPadding: PaddingValues) {
                             scaleX = 0.8f
                             scaleY = 0.9f
                         },
-                    colors = CardDefaults.cardColors(Color(0xFFFFFFFF)),
+                    colors = CardDefaults.cardColors(MaterialTheme.colorScheme.surfaceContainer),
                 ) {
                     Column(
                         modifier = Modifier
@@ -203,7 +203,7 @@ fun APPUI(innerPadding: PaddingValues) {
                             scaleX = 0.8f
                             scaleY = 0.9f
                         },
-                    colors = CardDefaults.cardColors(Color(0xFFFFFFFF)),
+                    colors = CardDefaults.cardColors(MaterialTheme.colorScheme.surfaceContainer),
                 ) {
                     Column(
                         modifier = Modifier
@@ -257,7 +257,7 @@ fun InfoCard(text: String) {
                     scaleX = 0.8f
                     scaleY = 0.9f
                 },
-            colors = CardDefaults.cardColors(Color(0xFFFFFFFF)),
+            colors = CardDefaults.cardColors(MaterialTheme.colorScheme.surfaceContainer),
         ) {
             Column(
                 modifier = Modifier.padding(16.dp),
@@ -307,7 +307,7 @@ fun MyTopAppBar(text: String) {
                 Icon(
                     imageVector = Icons.Filled.Info,
                     contentDescription = "Info",
-                    tint = MaterialTheme.colorScheme.onSurface
+                    tint = MaterialTheme.colorScheme.primary
                 )
             }
         },
