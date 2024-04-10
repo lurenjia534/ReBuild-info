@@ -14,8 +14,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -60,7 +60,7 @@ fun APP() {
     BuildInfoTheme {
         MaterialTheme {
             Scaffold(
-                containerColor = Color(0xFFFFF6F6),
+                containerColor = MaterialTheme.colorScheme.background,
                 modifier = Modifier.fillMaxSize(),
                 topBar = {
                     MyTopAppBar("Build Info")
@@ -69,11 +69,11 @@ fun APP() {
                     FloatingActionButton(
                         onClick = { /*TODO*/ },
                         modifier = Modifier.padding(32.dp),
-                        contentColor = Color(0xFFFF5C78),
-                        containerColor = Color(0xFFFFEBEF),
+                        contentColor = MaterialTheme.colorScheme.onSurface,
+                        containerColor = MaterialTheme.colorScheme.surfaceContainer,
                     ) {
                         Icon(
-                            imageVector = Icons.Filled.Favorite,
+                            imageVector = Icons.Outlined.FavoriteBorder,
                             contentDescription = "Love",
                         )
                     }
@@ -232,7 +232,7 @@ fun InfoText(text: String) {
             fontWeight = FontWeight.Bold,
             fontSize = 18.sp,
         ),
-        color = Color(0xFFFF4466),
+        color = MaterialTheme.colorScheme.onSurface,
         modifier = Modifier.fillMaxWidth()
     )
     Spacer(modifier =Modifier.height(8.dp))
@@ -272,7 +272,7 @@ fun InfoCard(text: String) {
                         fontSize = 25.sp,
                         textAlign = TextAlign.Center
                     ),
-                    color = Color(0xFFFF2D53),
+                    color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.fillMaxWidth()
                 )
             }
@@ -291,11 +291,11 @@ fun MyTopAppBar(text: String) {
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp,
                 ),
-                color = Color(0xFFFF8FA3)
+                color = MaterialTheme.colorScheme.onSurface
             )
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color(0xFFFFF1F4),
+            containerColor = MaterialTheme.colorScheme.surfaceContainer,
         ),
         navigationIcon = {
             IconButton(
@@ -307,7 +307,7 @@ fun MyTopAppBar(text: String) {
                 Icon(
                     imageVector = Icons.Filled.Info,
                     contentDescription = "Info",
-                    tint = Color(0xFFFF496A)
+                    tint = MaterialTheme.colorScheme.onSurface
                 )
             }
         },
