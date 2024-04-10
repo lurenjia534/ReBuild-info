@@ -213,9 +213,11 @@ fun APPUI(innerPadding: PaddingValues) {
                         horizontalAlignment = Alignment.CenterHorizontally,
 
                         ) {
-                        InfoText("Vendor:")
-                        InfoText("Version:")
-                        InfoText("DRM Level:")
+                        val widevine = Widevine()
+                        val widevineInfo = widevine.getWidevineInfo()
+                        InfoText("Vendor: ${widevineInfo.vendor}")
+                        InfoText("Version: ${widevineInfo.version}")
+                        InfoText("DRM Level: ${widevineInfo.drmLevel}")
                     }
                 }
             }
