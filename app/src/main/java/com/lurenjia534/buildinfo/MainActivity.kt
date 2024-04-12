@@ -33,6 +33,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -172,8 +173,15 @@ fun APPUI(innerPadding: PaddingValues) {
                         horizontalAlignment = Alignment.CenterHorizontally,
 
                         ) {
-                        InfoText("supported Encoder:")
-                        InfoText("supported Decoder:")
+
+                        val mediaInfo = Media(context = LocalContext.current)
+
+                        InfoText("supported Encoder: " +
+                                mediaInfo.supportedEncoder
+                        )
+                        InfoText("supported Decoder: " +
+                                mediaInfo.supportedDecoder
+                        )
                         InfoText("HDR 10:")
                         InfoText("HDR 10+:")
                         InfoText("HLG:")
