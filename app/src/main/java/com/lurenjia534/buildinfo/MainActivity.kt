@@ -214,7 +214,7 @@ fun APPUI(innerPadding: PaddingValues) {
 
                         ) {
                         val widevine = Widevine()
-                        val widevineInfo = widevine.getWidevineInfo()
+                        val widevineInfo = widevine.widevineInfo
                         InfoText("Vendor: ${widevineInfo.vendor}")
                         InfoText("Version: ${widevineInfo.version}")
                         InfoText("DRM Level: ${widevineInfo.drmLevel}")
@@ -227,11 +227,12 @@ fun APPUI(innerPadding: PaddingValues) {
 
 @Composable
 fun InfoText(text: String) {
+    Spacer(modifier = Modifier.height(8.dp))
     Text(
         text = text,
         style = TextStyle(
             fontFamily = FontFamily.Default,
-            fontWeight = FontWeight.Bold,
+            fontWeight = FontWeight.Normal,
             fontSize = 18.sp,
         ),
         color = MaterialTheme.colorScheme.onSurface,
@@ -270,7 +271,7 @@ fun InfoCard(text: String) {
                     text = text,
                     style = TextStyle(
                         fontFamily = FontFamily.Default,
-                        fontWeight = FontWeight.Bold,
+                        fontWeight = FontWeight.Medium,
                         fontSize = 25.sp,
                         textAlign = TextAlign.Center
                     ),
