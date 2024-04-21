@@ -1,9 +1,11 @@
 package com.lurenjia534.buildinfo
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -87,6 +89,7 @@ fun APP() {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun APPUI(innerPadding: PaddingValues) {
@@ -182,10 +185,10 @@ fun APPUI(innerPadding: PaddingValues) {
                         InfoText("supported Decoder: " +
                                 mediaInfo.supportedDecoder
                         )
-                        InfoText("HDR 10:")
-                        InfoText("HDR 10+:")
-                        InfoText("HLG:")
-                        InfoText("DOLBY VISION:")
+
+                        InfoText("HDR 10:"+ mediaInfo.hdr10)
+                        InfoText("HLG:"+ mediaInfo.hlg)
+                        InfoText("DOLBY VISION:"+ mediaInfo.dolbyVision)
                         InfoText("Screen refresh rate:")
                     }
                 }
